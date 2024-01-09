@@ -1,5 +1,4 @@
 #pragma once
-#include<vector>
 template<typename field>
 class Tuple {
 protected:
