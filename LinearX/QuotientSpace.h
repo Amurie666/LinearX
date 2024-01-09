@@ -1,8 +1,6 @@
 #pragma once
 //Exercise 31 of section1.3
-//I plan to edit this later, so don't worry too much about it... . 
-#include<set>
-#include<iostream>
+//This is needs to be edited a ton
 template<typename field, template <typename field> typename vector>
 class QuotientSpace {
 private:
