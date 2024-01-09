@@ -55,7 +55,7 @@ std::vector<LX::Matrix<field>> LUP_DEC(LX::Matrix<field> A) {
     size_t max_index = A.max_column(0);
     //Prepare an adequate permutation matrix Q, which represents the swapping of the first row with the row containing the maximum element.
     LX::Matrix<field> Q(A.size(), std::vector<field>(A.size(), 0));
-    for (size_t i{ 0 }; i < Q.size(); i++) Q[i][i] = 1;
+    for (size_t i{ 0 }; i < Q.size(); i++) Q[i][i] = static_cast<field>(1);
     std::swap(Q[0], Q[max_index]);
     //Swap the rows and store the result in a new matrix.
     LX::Matrix<field> QA = Q * A;
@@ -75,8 +75,8 @@ std::vector<LX::Matrix<field>> LUP_DEC(LX::Matrix<field> A) {
     LX::Matrix<field> vw = (v * w) * (static_cast<field>(1) / A_11);
     LX::Matrix<field> schur_complement = A_0 - (vw);
     //Prepare L, U, and P.
-    P = LX::Matrix<field>(A.size(), std::vector<field>(A.size(), 0)); P[0][0] = 1;
-    L = LX::Matrix<field>(A.size(), std::vector<field>(A.size(), 0)); L[0][0] = 1;
+    P = LX::Matrix<field>(A.size(), std::vector<field>(A.size(), 0)); P[0][0] = static_cast<field>(1);
+    L = LX::Matrix<field>(A.size(), std::vector<field>(A.size(), 0)); L[0][0] = static_cast<field>(1);
     U = LX::Matrix<field>(A.size(), std::vector<field>(A.size(), 0)); U[0][0] = A_11;
     //Recurse: Find an LUP decomposition for schur_complement.
     std::vector<LX::Matrix<field>> LUP_0 = LX::LUP_DEC<field>(schur_complement);
@@ -103,4 +103,7 @@ LX::Matrix<field> SYSTEM_SOLVE(LX::Matrix<field> A, LX::Matrix<field> b) {
 }
 inline double abs(const double& a) { return std::abs(a); }
 inline LX::Complex make_complex(double a, double b) { return LX::Complex(a, b); }
+
+
+
 
