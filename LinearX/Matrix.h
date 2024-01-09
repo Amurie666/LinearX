@@ -100,7 +100,7 @@ public:
         Matrix<field> result(rows, rhs.columns);
         for (size_t i{ 0 }; i < rows; i++)
             for (size_t j{ 0 }; j < rhs.columns; j++) {
-                result.entries[i][j] = 0;
+                result.entries[i][j] = static_cast<field>(0);
                 for (size_t k{ 0 }; k < rhs.rows; k++)
                     result.entries[i][j] += entries[i][k] * rhs.entries[k][j];
             }
@@ -222,4 +222,3 @@ public:
     }
 
 };
-
