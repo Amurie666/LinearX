@@ -90,5 +90,11 @@ public:
 	bool operator<(const Zmod<N>& rhs) const noexcept {
 		return (val < rhs.val);
 	}
+	bool operator!=(const Zmod<N>& rhs) const noexcept {
+		return (val != rhs.val);
+	}
+	void operator +=(const Zmod<N>& rhs) {
+		*this = (*this + rhs);
+	}
 	friend double abs(const Zmod<N>& a) { return std::abs(a.val); }
 };
