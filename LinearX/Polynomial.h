@@ -1,6 +1,4 @@
 #pragma once
-
-#include "Tuple.h"
 template<typename field>
 class Polynomial : public Tuple<field> {
 public:
