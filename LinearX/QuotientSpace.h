@@ -1,6 +1,6 @@
 #pragma once
 //Exercise 31 of section1.3
-//This is needs to be edited a ton
+//This needs a ton of editing
 template<typename field, template <typename field> typename vector>
 class QuotientSpace {
 private:
