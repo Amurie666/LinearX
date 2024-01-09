@@ -1,5 +1,4 @@
 #pragma once
-
 template<int N>
 class Zmod {
 private:
@@ -91,4 +90,5 @@ public:
 	bool operator<(const Zmod<N>& rhs) const noexcept {
 		return (val < rhs.val);
 	}
+	friend double abs(const Zmod<N>& a) { return std::abs(a.val); }
 };
